@@ -10,6 +10,11 @@ import sboy from "./SpaceBoy.png";
 import amazon from "./amazon.svg";
 import stars from "./stars.svg";
 import people from "./people.svg";
+import heroBgBanner from "./HeroBanner.svg";
+import zeroChild from "./zeroneChil.svg";
+import threeChil from "./threesixChil.svg";
+import nineChil from "./ninetweChil.svg";
+import twelChil from "./twelplusChil.svg";
 export {
   userImg,
   logo,
@@ -23,4 +28,9 @@ export {
   amazon,
   stars,
   people,
+  heroBgBanner,
+  zeroChild,
+  threeChil,
+  nineChil,
+  twelChil,
 };

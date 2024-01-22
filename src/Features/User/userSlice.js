@@ -1,20 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { csugar, dlove, ilove, pyoga, sboy } from "../../assets";
-
+import { zeroChild, threeChil, nineChil, twelChil } from "../../assets";
 const initialState = {
   activePage: "Home",
   menuItems: [
     {
       title: "Home",
-      link: "/",
+      link: "/brightRProject/",
     },
     {
       title: "Browse Library",
-      link: "/browseLibrary",
+      link: "/brightRProject/browseLibrary",
     },
     {
       title: "Blogs",
-      link: "/blogs",
+      link: "/brightRProject/blogs",
     },
   ],
   heroCarousel: [
@@ -69,6 +69,8 @@ const initialState = {
       link: "https://www.amazon.in/",
     },
   ],
+  ageArr: ["0-1", "1-3", "3-6", "6-9", "9-12", "12+"],
+  childArr: [zeroChild, threeChil, nineChil, twelChil],
   isLoggedin: false,
   delivery: new Date().toISOString(true).split("T")[0],
 };
