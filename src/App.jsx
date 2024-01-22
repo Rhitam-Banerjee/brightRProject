@@ -5,10 +5,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/browseLibrary" element={<BrowseLibrary />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/myBooks" element={<MyBooks />} />
+        <Route path="/brightRProject/" element={<Home />} />
+        <Route
+          path="/brightRProject/browseLibrary"
+          element={<BrowseLibrary />}
+        />
+        <Route path="/brightRProject/blogs" element={<Blogs />} />
+        <Route path="/brightRProject/myBooks" element={<MyBooks />} />
       </Routes>
     </BrowserRouter>
   );
