@@ -6,9 +6,12 @@ const HeroBanner = () => {
   return (
     <section className="relative h-[200px] w-full bg-no-repeat bg-cover bg-center mt-[70px]">
       <div
-        className="absolute bottom-[-20px] left-0 right-0 w-full h-[95%] bg-no-repeat bg-center bg-cover -z-10"
+        className="absolute bottom-[-20px] left-0 right-0 w-full h-[95%] -z-10"
         style={{
           backgroundImage: `url(${heroBgBanner})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       />
       <div className="relative max-w-7xl m-auto h-full w-full flex flex-col">
