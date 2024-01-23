@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -17,6 +18,7 @@ const Carousel = () => {
       pagination={{
         clickable: true,
       }}
+      modules={[Navigation]}
       navigation={true}
       className="mySwiper h-[300px]"
     >
@@ -30,14 +32,21 @@ const Carousel = () => {
           age,
           isNewArrival,
           link,
+          bgColor,
         } = item;
         return (
           <SwiperSlide key={index}>
             <div
-              className="relative p-2 flex flex-row lg:flex-col items-center justify-between w-[92%] md:w-full h-[400px] gap-8 group 
-                after:absolute after:top-1/2 after:right-0 after:-translate-y-1/2 after:h-[70%] after:w-[80%] after:ml-auto after:bg-blueLightColor after:rounded-[32px] after:-z-10 after:transition-all duration-300 
-                hover:after:h-[90%] hover:after:w-full"
+              className={`relative p-2 flex flex-row lg:flex-col items-center justify-between w-[92%] md:w-full h-[400px] gap-8 group 
+                `}
             >
+              <div
+                className="absolute top-1/2 right-0 -translate-y-1/2 h-[70%] w-[80%] ml-auto bg-[${bgColor}] rounded-[32px] -z-10 transition-all duration-300 
+                group-hover:h-[90%] group-hover:w-full "
+                style={{
+                  background: bgColor,
+                }}
+              />
               <div
                 className={`h-[90%] w-[340px] m-auto aspect-7/8 rounded-[32px] 
                 -rotate-[5deg] group-hover:rotate-0 transition-all duration-300`}

@@ -1,12 +1,124 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
-    
-}
-const bookSlice=createSlice({
-    name:"books",
-    initialState,
-    reducers:{
+import {
+  aliens,
+  badSeed,
+  csugar,
+  davidTrouble,
+  dinoCatch,
+  dlove,
+  ilove,
+  pyoga,
+  sboy,
+  spacebooks,
+} from "../../assets";
 
-    }
-})
-export default bookSlice.reducer
+const initialState = {
+  topTen: [
+    {
+      title: "There's Coriander in my Sugar Pot!",
+      image: csugar,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "3-6",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "Space Boy",
+      image: sboy,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "3-6",
+      isNewArrival: false,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "I Love My New Toy!",
+      image: ilove,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: false,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "Dinosaur Love Underpants",
+      image: dlove,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "3-6",
+      isNewArrival: false,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "Peppa Loves Yoga",
+      image: pyoga,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "Aliens love Dinopants",
+      image: aliens,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "The Bad Seed",
+      image: badSeed,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "Book About Space",
+      image: spacebooks,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "How to Catch a Dinosaur",
+      image: dinoCatch,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+    },
+    {
+      title: "David Gets in Trouble",
+      image: davidTrouble,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+    },
+  ],
+};
+const bookSlice = createSlice({
+  name: "books",
+  initialState,
+  reducers: {},
+});
+export default bookSlice.reducer;

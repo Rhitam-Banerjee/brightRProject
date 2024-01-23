@@ -6,7 +6,7 @@ const HeroBanner = () => {
     <section className="relative h-[200px] w-full bg-no-repeat bg-cover bg-center mt-[70px]">
       <div className="absolute bottom-[-20px] left-0 right-0 w-full h-[95%] -z-10 bg-gradient-to-r from-gradientStop1 via-gradientStop2 to-gradientStop3 bg-no-repeat bg-cover bg-center" />
       <div className="relative max-w-7xl m-auto h-full w-full flex flex-col">
-        <span className="absolute top-[50px] left-0 font-semibold text-[1.2rem]">
+        <span className="absolute top-[50px] left-0 pl-2 font-semibold text-[1.2rem]">
           Browse by Age group
         </span>
         <div className="flex flex-row items-end justify-between text-[0.8rem]">

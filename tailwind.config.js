@@ -14,6 +14,9 @@ export default {
         gradientStop2: "#E0ECFF",
         gradientStop3: "#F9F2FF",
       },
+      dropShadow: {
+        solidShdow: "0 0 10px 0 #fff",
+      },
       aspectRatio: {
         "7/8": "7 / 8",
       },
@@ -21,6 +24,9 @@ export default {
         xs: { max: "450px" },
         md: { max: "640px" },
         lg: { max: "1130px" },
+      },
+      fontFamily: {
+        Jua: ["Jua", "sans-serif"],
       },
     },
   },

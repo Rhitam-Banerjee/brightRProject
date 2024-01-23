@@ -1,6 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { csugar, dlove, ilove, pyoga, sboy } from "../../assets";
+// import { csugar, dlove, ilove, pyoga, sboy } from "../../assets";
 import { zeroChild, threeChil, nineChil, twelChil } from "../../assets";
+import {
+  aliens,
+  badSeed,
+  csugar,
+  davidTrouble,
+  dinoCatch,
+  dlove,
+  ilove,
+  pyoga,
+  sboy,
+  spacebooks,
+} from "../../assets";
 const initialState = {
   activePage: "Home",
   menuItems: [
@@ -27,6 +39,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      bgColor: "#FFF4ED",
     },
     {
       title: "Space Boy",
@@ -37,6 +50,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      bgColor: "#E9FDF7",
     },
     {
       title: "I Love My New Toy!",
@@ -47,6 +61,7 @@ const initialState = {
       age: "0-2",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      bgColor: "#EDF2FF",
     },
     {
       title: "Dinosaur Love Underpants",
@@ -57,6 +72,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      bgColor: "#FCF2FF",
     },
     {
       title: "Peppa Loves Yoga",
@@ -67,6 +83,62 @@ const initialState = {
       age: "0-2",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      bgColor: "#FFF4ED",
+    },
+    {
+      title: "Aliens love Dinopants",
+      image: aliens,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+      bgColor: "#E9FDF7",
+    },
+    {
+      title: "The Bad Seed",
+      image: badSeed,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+      bgColor: "#EDF2FF",
+    },
+    {
+      title: "Book About Space",
+      image: spacebooks,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+      bgColor: "#FCF2FF",
+    },
+    {
+      title: "How to Catch a Dinosaur",
+      image: dinoCatch,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+      bgColor: "#FFF4ED",
+    },
+    {
+      title: "David Gets in Trouble",
+      image: davidTrouble,
+      desc: "All mamma wants on her special day is a little bit of peace, love, and cleanliness...",
+      rating: "4.3",
+      peopleRead: 1234,
+      age: "0-2",
+      isNewArrival: true,
+      link: "https://www.amazon.in/",
+      bgColor: "#E9FDF7",
     },
   ],
   ageArr: ["0-1", "1-3", "3-6", "6-9", "9-12", "12+"],
