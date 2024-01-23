@@ -1,9 +1,4 @@
-import {
-  Carousel,
-  HeroBanner,
-  MultiCarousel,
-  SimpleCarousel,
-} from "../Components";
+import { Carousel, HeroBanner, MultiCarousel } from "../Components";
 
 const Hero = () => {
   return (
@@ -11,9 +6,6 @@ const Hero = () => {
       <Carousel />
       <HeroBanner />
       <MultiCarousel />
-      <SimpleCarousel text={"Best Sellers"} />
-      <SimpleCarousel text={"New Arrival"} />
-      <SimpleCarousel text={"Peppa Pig"} />
     </section>
   );
 };

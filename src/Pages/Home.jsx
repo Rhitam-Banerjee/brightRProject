@@ -1,9 +1,12 @@
-import { Hero, Navbar } from "../Containers";
+import { CollectionsBook, Footer, Hero, Navbar, Popular } from "../Containers";
 const Home = () => {
   return (
-    <main>
+    <main className="relative">
       <Navbar />
       <Hero />
+      <Popular />
+      <CollectionsBook />
+      <Footer />
     </main>
   );
 };

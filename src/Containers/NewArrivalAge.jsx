@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, HashNavigation } from "swiper/modules";
@@ -7,14 +8,14 @@ import { FaRegHeart } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useSelector } from "react-redux";
-const SimpleCarousel = ({ text }) => {
-  const { topTen } = useSelector((store) => store.books);
+const NewArrivalAge = () => {
+  const { age } = useSelector((store) => store.age);
+  const { ageBooks } = useSelector((store) => store.books);
   return (
-    <section className="relative mt-[20px]">
-      <span className="absolute top-0 left-1/2 -translate-x-1/2 pl-2 w-full max-w-7xl m-auto font-semibold text-[1.2rem]">
-        {text}
-      </span>
+    <section>
+      <h1 className="pl-2 w-full max-w-7xl m-auto font-semibold text-[1.2rem]">
+        New Arrival for {age} years
+      </h1>
       <Swiper
         slidesPerView={6}
         spaceBetween={30}
@@ -29,7 +30,11 @@ const SimpleCarousel = ({ text }) => {
         modules={[Navigation, HashNavigation]}
         className="mySwiper pt-[50px] flex justify-between"
       >
-        {topTen.map((book, index) => {
+        {[
+          ...ageBooks.filter((book) => {
+            return book.age === age && book.isNewArrival;
+          }),
+        ].map((book, index) => {
           const { title, image, rating, peopleRead, link } = book;
           return (
             <SwiperSlide
@@ -90,4 +95,4 @@ const SimpleCarousel = ({ text }) => {
   );
 };
 
-export default SimpleCarousel;
+export default NewArrivalAge;

@@ -1,3 +1,18 @@
 import Navbar from "./Navbar";
 import Hero from "./Hero";
-export { Navbar, Hero };
+import Popular from "./Popular";
+import CollectionsBook from "./CollectionsBook";
+import Footer from "./Footer";
+import BrowserLibraryHero from "./BrowserLibraryHero";
+import BrowseBooks from "./BrowseBooks";
+import NewArrivalAge from "./NewArrivalAge";
+export {
+  Navbar,
+  Hero,
+  Popular,
+  CollectionsBook,
+  Footer,
+  BrowserLibraryHero,
+  BrowseBooks,
+  NewArrivalAge,
+};

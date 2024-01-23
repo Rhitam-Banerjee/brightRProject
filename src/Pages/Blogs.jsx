@@ -1,7 +1,12 @@
-import { Navbar } from "../Containers";
+import { Navbar, Footer } from "../Containers";
 
 const Blogs = () => {
-  return <Navbar />;
+  return (
+    <main className="relative">
+      <Navbar />
+      <Footer />
+    </main>
+  );
 };
 
 export default Blogs;

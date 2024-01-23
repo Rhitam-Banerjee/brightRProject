@@ -1,6 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 // import { csugar, dlove, ilove, pyoga, sboy } from "../../assets";
-import { zeroChild, threeChil, nineChil, twelChil } from "../../assets";
+import {
+  zeroChild,
+  threeChil,
+  nineChil,
+  twelChil,
+  insta,
+  x,
+  f,
+} from "../../assets";
 import {
   aliens,
   badSeed,
@@ -145,6 +153,57 @@ const initialState = {
   childArr: [zeroChild, threeChil, nineChil, twelChil],
   isLoggedin: false,
   delivery: new Date().toISOString(true).split("T")[0],
+  footer: {
+    list1: [
+      {
+        title: "About Us",
+        link: "/brightRProject/blogs",
+      },
+      {
+        title: "Contact Us",
+        link: "/brightRProject/blogs",
+      },
+      {
+        title: "FAQ",
+        link: "/brightRProject/blogs",
+      },
+    ],
+    list2: [
+      {
+        title: "Disclaimer",
+        link: "/brightRProject/blogs",
+      },
+      {
+        title: "Privacy Policy",
+        link: "/brightRProject/blogs",
+      },
+      {
+        title: "Refund Policy",
+        link: "/brightRProject/blogs",
+      },
+      {
+        title: "Terms and Conditions",
+        link: "/brightRProject/blogs",
+      },
+    ],
+    list3: [
+      {
+        title: "X",
+        image: x,
+        link: "https://twitter.com/",
+      },
+      {
+        title: "Facebook",
+        image: f,
+        link: "https://www.facebook.com/",
+      },
+      {
+        title: "Instagram",
+        image: insta,
+        link: "https://instagram.com/",
+      },
+    ],
+  },
 };
 const userSlice = createSlice({
   name: "user",

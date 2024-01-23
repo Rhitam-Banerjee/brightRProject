@@ -1,5 +1,7 @@
 import userImg from "./userImg.png";
+// logos
 import logo from "./BrightRClub.svg";
+import logoWhite from "./logoWhite.svg";
 // Popular Series Bg
 import bg from "./Bg.svg";
 // books
@@ -29,8 +31,15 @@ import zeroChild from "./zeroneChil.svg";
 import threeChil from "./threesixChil.svg";
 import nineChil from "./ninetweChil.svg";
 import twelChil from "./twelplusChil.svg";
+// social icons
+import x from "./x.svg";
+import f from "./f.svg";
+import insta from "./insta.svg";
+// left arrow
+import leftArrow from "./leftArrow.svg";
 export {
   userImg,
+  logoWhite,
   logo,
   bg,
   aele,
@@ -57,4 +66,8 @@ export {
   threeChil,
   nineChil,
   twelChil,
+  x,
+  f,
+  insta,
+  leftArrow,
 };
