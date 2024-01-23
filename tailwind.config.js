@@ -10,6 +10,9 @@ export default {
         purpleLightColor: "#FCF2FF",
         beigeLightColor: "#FFF4ED",
         greenLightColor: "#E9FDF7",
+        gradientStop1: "#EBFFFA",
+        gradientStop2: "#E0ECFF",
+        gradientStop3: "#F9F2FF",
       },
       aspectRatio: {
         "7/8": "7 / 8",
