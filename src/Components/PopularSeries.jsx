@@ -44,11 +44,11 @@ const PopularSeries = () => {
             >
               <div
                 className={`relative w-[200px] h-full p-4 -z-[50px] transition-all duration-300
-                flex flex-col justify-start items-start bg-transparent opacity-50 
+                flex flex-col justify-start items-start bg-transparent 
                  ${
                    seriesSelected === title
-                     ? "scale-[1.2] translate-y-[25px] opacity-100"
-                     : "group-hover:scale-[1.2] group-hover:translate-y-[25px] group-hover:opacity-100"
+                     ? "scale-[1.2] !translate-y-[40px] opacity-100"
+                     : "opacity-50 group-hover:scale-[1.2] group-hover:translate-y-[40px] group-hover:opacity-100"
                  }`}
                 onClick={() => dispatch(changeSeries(title))}
               >
