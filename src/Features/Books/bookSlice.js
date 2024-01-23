@@ -13,6 +13,7 @@ import {
 } from "../../assets";
 
 const initialState = {
+  seriesSelected: "Habits",
   topTen: [
     {
       title: "There's Coriander in my Sugar Pot!",
@@ -115,7 +116,7 @@ const initialState = {
       link: "https://www.amazon.in/",
     },
   ],
-  ageBooks: [
+  allBooks: [
     {
       title: "There's Coriander in my Sugar Pot!",
       image: csugar,
@@ -125,6 +126,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Space Boy",
@@ -135,6 +137,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Science",
     },
     {
       title: "I Love My New Toy!",
@@ -145,6 +148,7 @@ const initialState = {
       age: "0-1",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Dinosaur Love Underpants",
@@ -155,6 +159,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Dinosaur",
     },
     {
       title: "Peppa Loves Yoga",
@@ -165,6 +170,7 @@ const initialState = {
       age: "0-1",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Peppa Pig",
     },
     {
       title: "Aliens love Dinopants",
@@ -175,6 +181,7 @@ const initialState = {
       age: "0-1",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Aliens",
     },
     {
       title: "The Bad Seed",
@@ -185,6 +192,7 @@ const initialState = {
       age: "0-1",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Book About Space",
@@ -195,6 +203,7 @@ const initialState = {
       age: "0-1",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Space",
     },
     {
       title: "How to Catch a Dinosaur",
@@ -205,6 +214,7 @@ const initialState = {
       age: "9-12",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Dinosaur",
     },
     {
       title: "David Gets in Trouble",
@@ -215,6 +225,7 @@ const initialState = {
       age: "9-12",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "David",
     },
     {
       title: "There's Coriander in my Sugar Pot!",
@@ -225,6 +236,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Space Boy",
@@ -235,6 +247,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Science",
     },
     {
       title: "I Love My New Toy!",
@@ -245,6 +258,7 @@ const initialState = {
       age: "6-9",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Dinosaur Love Underpants",
@@ -255,6 +269,7 @@ const initialState = {
       age: "1-3",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Dinosaur",
     },
     {
       title: "Peppa Loves Yoga",
@@ -265,6 +280,7 @@ const initialState = {
       age: "6-9",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Peppa Pig",
     },
     {
       title: "Aliens love Dinopants",
@@ -275,6 +291,7 @@ const initialState = {
       age: "1-3",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Aliens",
     },
     {
       title: "The Bad Seed",
@@ -285,6 +302,7 @@ const initialState = {
       age: "12+",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Book About Space",
@@ -295,6 +313,7 @@ const initialState = {
       age: "12+",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Science",
     },
     {
       title: "How to Catch a Dinosaur",
@@ -305,6 +324,7 @@ const initialState = {
       age: "9-12",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Dinosaur",
     },
     {
       title: "David Gets in Trouble",
@@ -315,6 +335,7 @@ const initialState = {
       age: "0-1",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "David",
     },
     {
       title: "There's Coriander in my Sugar Pot!",
@@ -325,6 +346,7 @@ const initialState = {
       age: "6-9",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Space Boy",
@@ -335,6 +357,7 @@ const initialState = {
       age: "12+",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Science",
     },
     {
       title: "I Love My New Toy!",
@@ -345,6 +368,7 @@ const initialState = {
       age: "3-6",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Dinosaur Love Underpants",
@@ -355,6 +379,7 @@ const initialState = {
       age: "9-12",
       isNewArrival: false,
       link: "https://www.amazon.in/",
+      series: "Dinosaur",
     },
     {
       title: "Peppa Loves Yoga",
@@ -365,6 +390,7 @@ const initialState = {
       age: "9-12",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Peppa Pig",
     },
     {
       title: "Aliens love Dinopants",
@@ -375,6 +401,7 @@ const initialState = {
       age: "12+",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Under Pants",
     },
     {
       title: "The Bad Seed",
@@ -385,6 +412,7 @@ const initialState = {
       age: "12+",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Habits",
     },
     {
       title: "Book About Space",
@@ -395,6 +423,7 @@ const initialState = {
       age: "12+",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Science",
     },
     {
       title: "How to Catch a Dinosaur",
@@ -405,6 +434,7 @@ const initialState = {
       age: "1-3",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "Dinosaur",
     },
     {
       title: "David Gets in Trouble",
@@ -415,12 +445,44 @@ const initialState = {
       age: "0-1",
       isNewArrival: true,
       link: "https://www.amazon.in/",
+      series: "David",
+    },
+  ],
+  bookTitle: [
+    {
+      title: "Peppa Pig",
+      image: pyoga,
+    },
+    {
+      title: "Science",
+      image: sboy,
+    },
+    {
+      title: "Habits",
+      image: badSeed,
+    },
+    {
+      title: "Dinosaur",
+      image: dinoCatch,
+    },
+    {
+      title: "Aliens",
+      image: aliens,
+    },
+    {
+      title: "David",
+      image: davidTrouble,
     },
   ],
 };
 const bookSlice = createSlice({
   name: "books",
   initialState,
-  reducers: {},
+  reducers: {
+    changeSeries: (state, { payload }) => {
+      state.seriesSelected = payload;
+    },
+  },
 });
+export const { changeSeries } = bookSlice.actions;
 export default bookSlice.reducer;

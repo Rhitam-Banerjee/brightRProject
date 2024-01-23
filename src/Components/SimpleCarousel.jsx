@@ -45,7 +45,7 @@ const SimpleCarousel = ({ text }) => {
               >
                 <div
                   className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 m-auto
-                  w-[50%] h-[50%] bg-blueLightColor rounded-[32px] opacity-0 transition-all duration-500
+                  w-[50%] h-[50%] bg-blueLightColor rounded-[32px] opacity-0 transition-all duration-300
                   group-hover:opacity-100 group-hover:h-[100%] group-hover:w-[200px] -z-10"
                 />
                 <div
