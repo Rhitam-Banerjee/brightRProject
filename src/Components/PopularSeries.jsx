@@ -16,7 +16,7 @@ const PopularSeries = () => {
         PopularSeries
       </h1>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={"auto"}
         spaceBetween={30}
         hashNavigation={{
           watchState: true,
@@ -40,7 +40,7 @@ const PopularSeries = () => {
             <SwiperSlide
               datatype={`slide${index}`}
               key={index}
-              className="h-[400px] group !bg-transparent pl-[20px]"
+              className="h-[400px] !w-[200px] group !bg-transparent pl-[20px]"
             >
               <div
                 className={`relative w-[200px] h-full p-4 -z-[50px] transition-all duration-300

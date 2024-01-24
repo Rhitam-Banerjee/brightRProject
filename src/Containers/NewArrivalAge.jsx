@@ -17,7 +17,7 @@ const NewArrivalAge = () => {
         New Arrival for {age} years
       </h1>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={"auto"}
         spaceBetween={30}
         hashNavigation={{
           watchState: true,

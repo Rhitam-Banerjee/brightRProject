@@ -23,6 +23,7 @@ export default {
       screens: {
         xs: { max: "450px" },
         md: { max: "640px" },
+        custom: { max: "870px" },
         lg: { max: "1130px" },
       },
       fontFamily: {

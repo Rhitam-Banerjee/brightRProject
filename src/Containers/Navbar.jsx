@@ -36,7 +36,7 @@ const Navbar = () => {
   }, [deliveryDate]);
   return (
     <section className="fixed top-0 left-1/2 -translate-x-1/2 w-full bg-white z-50">
-      <div className=" max-w-7xl m-auto py-4 px-2 flex flex-row items-center justify-between gap-8 text-[12px]">
+      <div className=" max-w-7xl m-auto py-4 px-2 flex flex-row items-center justify-between gap-8 lg:gap-2 text-[12px]">
         <div className="flex-1 flex flex-row items-center justify-start">
           <div className="mr-4">
             <img src={logo} alt="Logo" />
@@ -55,7 +55,7 @@ const Navbar = () => {
           </form>
         </div>
         <div className="flex-1 flex flex-row justify-around items-center">
-          <ul className="min-w-[250px] flex flex-row justify-between items-center">
+          <ul className="w-full max-w-[200px] flex flex-row justify-between items-center">
             {menuItems.map((items, index) => {
               const { title, link } = items;
               return (

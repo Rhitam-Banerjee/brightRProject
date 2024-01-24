@@ -155,4 +155,13 @@ abbr {
   .swiper-slide {
     width: 100%;
   }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    transform: scale(0.5);
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    box-shadow: 0 5px 10px #00000060;
+    transform: translateY(-50px) scale(0.5);
+  }
 }

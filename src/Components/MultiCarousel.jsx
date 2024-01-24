@@ -15,7 +15,7 @@ const MultiCarousel = () => {
         Top 10 Books
       </span>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={"auto"}
         spaceBetween={30}
         hashNavigation={{
           watchState: true,

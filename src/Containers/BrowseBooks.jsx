@@ -17,7 +17,7 @@ const BrowseBooks = () => {
         Browse Books for {age} years old
       </h1>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={"auto"}
         spaceBetween={30}
         hashNavigation={{
           watchState: true,

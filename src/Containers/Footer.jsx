@@ -7,20 +7,20 @@ const Footer = () => {
   const dispatch = useDispatch();
   const { footer } = useSelector((store) => store.user);
   return (
-    <section className="mt-[100px] h-[323px] w-full bg-highlight flex flex-col justify-between">
-      <div className="h-max w-full max-w-4xl p-4 grid place-items-center m-auto grid-cols-4 md:grid-cols-2 gap-4">
-        <div className="w-full h-full flex flex-col justify-start items-start">
+    <section className="mt-[100px] min-h-[323px] h-max w-full bg-highlight flex flex-col justify-between xs:pt-[30px]">
+      <div className="h-max w-full max-w-4xl p-4 grid place-items-center m-auto grid-cols-4 md:grid-cols-2 xs:grid-cols-1 gap-4">
+        <div className="w-full h-full flex flex-col justify-start items-start xs:mb-[20px]">
           <h2 className="text-white font-semibold mb-2">Get Connected</h2>
           {footer.list1.map((item, index) => {
             const { title, link } = item;
             return (
               <Link key={index} to={link} target="_blank" className="py-1">
-                <div className="text-gray-200">{title}</div>
+                <div className="text-gray-200 xs:text-[0.8rem]">{title}</div>
               </Link>
             );
           })}
         </div>
-        <div className="w-full h-full flex flex-col justify-start items-start">
+        <div className="w-full h-full flex flex-col justify-start items-start xs:mb-[20px]">
           <h2 className="text-white font-semibold mb-2">Policy</h2>
           {footer.list2.map((item, index) => {
             const { title, link } = item;
@@ -31,7 +31,7 @@ const Footer = () => {
             );
           })}
         </div>
-        <div className="w-full h-full flex flex-col justify-start items-start">
+        <div className="w-full h-full flex flex-col justify-start items-start xs:mb-[20px]">
           <h2 className="text-white font-semibold">Follow Us</h2>
           <ul className="flex flex-row items-center justify-between mt-2">
             {footer.list3.map((item, index) => {
@@ -44,7 +44,7 @@ const Footer = () => {
             })}
           </ul>
         </div>
-        <div className="w-full h-full flex items-start">
+        <div className="w-full h-full flex items-start xs:mb-[20px]">
           <Link
             to={"/brightRProject/"}
             onClick={() => dispatch(setActive("Home"))}

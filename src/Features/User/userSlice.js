@@ -22,6 +22,7 @@ import {
   spacebooks,
 } from "../../assets";
 const initialState = {
+  isMobile: false,
   activePage: "Home",
   menuItems: [
     {
@@ -209,6 +210,10 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    setisMobileDevice: (state, { payload }) => {
+      state.isMobile = payload;
+      console.log(state.isMobile);
+    },
     loginout: (state) => {
       state.isLoggedin = !state.isLoggedin;
     },
@@ -220,5 +225,6 @@ const userSlice = createSlice({
     },
   },
 });
-export const { loginout, setActive, changeDelivery } = userSlice.actions;
+export const { setisMobileDevice, loginout, setActive, changeDelivery } =
+  userSlice.actions;
 export default userSlice.reducer;

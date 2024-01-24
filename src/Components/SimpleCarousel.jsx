@@ -16,7 +16,7 @@ const SimpleCarousel = ({ text }) => {
         {text}
       </span>
       <Swiper
-        slidesPerView={6}
+        slidesPerView={"auto"}
         spaceBetween={30}
         hashNavigation={{
           watchState: true,

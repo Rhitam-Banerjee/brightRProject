@@ -22,7 +22,7 @@ const PopularSeriesBooks = () => {
         <small className="ml-2 opacity-50"> {booksCount} books</small>
       </p>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={"auto"}
         spaceBetween={30}
         hashNavigation={{
           watchState: true,
