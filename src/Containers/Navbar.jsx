@@ -41,9 +41,9 @@ const Navbar = () => {
       <div className="relative max-w-7xl m-auto py-4 px-2 flex flex-row items-center justify-between gap-8 lg:gap-2 xs:gap-0 text-[12px]">
         <div className="flex-1 flex flex-row items-center justify-start">
           <div className="mr-4">
-            <img src={logo} alt="Logo" />
+            <img src={logo} alt="Logo" className="xs:!w-[100px]" />
           </div>
-          <form className="flex-1 flex flex-row bg-blueLightColor p-2 rounded-xl max-w-[380px] md:!max-w-[250px]">
+          <form className="flex-1 flex flex-row bg-blueLightColor p-2 rounded-xl max-w-[380px] md:!max-w-[250px] xs:!max-w-[150px]">
             <button type="submit" className="">
               <CiSearch className="text-[#9DABCE] font-black text-[1.2rem]" />
             </button>
