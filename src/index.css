@@ -155,6 +155,12 @@ abbr {
   .swiper-slide {
     width: 100%;
   }
+  .swiper-button-prev {
+    left: 0;
+  }
+  .swiper-button-next {
+    right: 0;
+  }
   .swiper-button-next::after,
   .swiper-button-prev::after {
     transform: scale(0.5);

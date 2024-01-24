@@ -88,7 +88,7 @@ const Carousel = () => {
                 </Link>
                 <div
                   className="opacity-0 scale-50 mt-4 transition-all duration-300 px-4 py-2 flex flex-row items-center
-                 text-[#3B72FF] border-[2px] border-[#3B72FF] rounded-md w-max cursor-pointer lg:group-hover:opacity-100 lg:group-hover:scale-100"
+                 text-[#3B72FF] border-[2px] border-[#3B72FF] rounded-md w-max cursor-pointer group-hover:opacity-100 group-hover:scale-100"
                 >
                   <FaRegHeart className="mr-2 !font-bold" />
                   Add to Wishlist

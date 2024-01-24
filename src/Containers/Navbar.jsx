@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { logo, userImg } from "../assets";
 import { CiSearch } from "react-icons/ci";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
+import { PiHamburgerDuotone } from "react-icons/pi";
 import {
   changeDelivery,
   loginout,
@@ -36,12 +37,12 @@ const Navbar = () => {
   }, [deliveryDate]);
   return (
     <section className="fixed top-0 left-1/2 -translate-x-1/2 w-full bg-white z-50">
-      <div className=" max-w-7xl m-auto py-4 px-2 flex flex-row items-center justify-between gap-8 lg:gap-2 text-[12px]">
-        <div className="flex-1 flex flex-row items-center justify-start">
-          <div className="mr-4">
-            <img src={logo} alt="Logo" />
+      <div className=" max-w-7xl m-auto py-4 px-2 flex flex-row items-center justify-between gap-8 lg:gap-2 xs:gap-0 text-[12px]">
+        <div className="flex-1 custom:!flex-none flex flex-row items-center justify-start xs:w-max">
+          <div className="mr-4 xs:mr-2">
+            <img src={logo} alt="Logo" className="xs:w-[70px]" />
           </div>
-          <form className="flex-1 flex flex-row bg-blueLightColor p-2 rounded-xl max-w-[380px]">
+          <form className="custom:hidden flex-1 flex flex-row bg-blueLightColor p-2 rounded-xl max-w-[380px]">
             <button type="submit" className="">
               <CiSearch className="text-[#9DABCE] font-black text-[1.2rem]" />
             </button>
@@ -55,7 +56,7 @@ const Navbar = () => {
           </form>
         </div>
         <div className="flex-1 flex flex-row justify-around items-center">
-          <ul className="w-full max-w-[200px] flex flex-row justify-between items-center">
+          <ul className="w-full max-w-[200px] flex flex-row justify-between items-center xs:justify-start xs:gap-4">
             {menuItems.map((items, index) => {
               const { title, link } = items;
               return (
@@ -65,7 +66,7 @@ const Navbar = () => {
                     activePage === title
                       ? "text-blue-400"
                       : "hover:text-gray-400"
-                  }   `}
+                  }`}
                   onClick={() => dispatch(setActive(`${title}`))}
                 >
                   <Link to={`${link}`}>{title}</Link>
@@ -74,9 +75,9 @@ const Navbar = () => {
             })}
           </ul>
           {isLoggedin === true ? (
-            <>
+            <div className="custom:hidden gap-2 flex-1 flex justify-around items-center">
               <span
-                className={`pl-4 border-l-[1px] border-l-gray-400  ${
+                className={`ml-2 pl-4 border-l-[1px] border-l-gray-400  ${
                   activePage === "My Books"
                     ? "text-blue-400"
                     : "hover:text-gray-400"
@@ -166,9 +167,9 @@ const Navbar = () => {
                   )}
                 </div>
               </div>
-            </>
+            </div>
           ) : (
-            <>
+            <div className="custom:hidden max-w-[200px] w-full flex justify-between items-center">
               <span
                 className={`pl-4 border-l-[1px] border-l-gray-400 cursor-pointer`}
                 onClick={() => dispatch(loginout())}
@@ -179,13 +180,14 @@ const Navbar = () => {
                 to={"/brightRProject/blogs"}
                 onClick={() => dispatch(setActive("Blogs"))}
               >
-                <div className="px-4 py-2 rounded-lg bg-highlight text-white font-bold cursor-pointer">
+                <div className="px-4 py-2 lg:px-2 lg:py-1 rounded-lg bg-highlight text-white font-bold cursor-pointer">
                   Get Started
                 </div>
               </Link>
-            </>
+            </div>
           )}
         </div>
+        <PiHamburgerDuotone className="hidden custom:block" />
       </div>
     </section>
   );

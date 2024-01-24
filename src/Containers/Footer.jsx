@@ -15,7 +15,7 @@ const Footer = () => {
             const { title, link } = item;
             return (
               <Link key={index} to={link} target="_blank" className="py-1">
-                <div className="text-gray-200 xs:text-[0.8rem]">{title}</div>
+                <div className="text-gray-200 md:text-[0.8rem]">{title}</div>
               </Link>
             );
           })}
@@ -26,12 +26,12 @@ const Footer = () => {
             const { title, link } = item;
             return (
               <Link key={index} to={link} target="_blank" className="py-1">
-                <div className="text-gray-200">{title}</div>
+                <div className="text-gray-200 md:text-[0.8rem]">{title}</div>
               </Link>
             );
           })}
         </div>
-        <div className="w-full h-full flex flex-col justify-start items-start xs:mb-[20px]">
+        <div className="w-full h-full flex flex-col justify-start items-start md:mb-[20px]">
           <h2 className="text-white font-semibold">Follow Us</h2>
           <ul className="flex flex-row items-center justify-between mt-2">
             {footer.list3.map((item, index) => {
@@ -53,7 +53,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="h-[63px] w-full bg-[rgba(0,0,0,0.1)] grid place-items-center font-light text-gray-300">
+      <div className="h-[63px] w-full bg-[rgba(0,0,0,0.1)] grid place-items-center font-light text-gray-300  xs:text-[0.8rem]">
         <span>© 2024 BrightR.Club</span>
       </div>
     </section>
