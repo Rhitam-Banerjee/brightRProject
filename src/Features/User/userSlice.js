@@ -212,7 +212,6 @@ const userSlice = createSlice({
   reducers: {
     setisMobileDevice: (state, { payload }) => {
       state.isMobile = payload;
-      console.log(state.isMobile);
     },
     loginout: (state) => {
       state.isLoggedin = !state.isLoggedin;
