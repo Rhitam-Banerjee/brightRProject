@@ -20,7 +20,7 @@ const Carousel = () => {
       }}
       modules={[Navigation]}
       navigation={true}
-      className="mySwiper h-[300px]"
+      className="mySwiper h-[300px] lg:mb-[200px] xs:mb-[100px]"
     >
       {heroCarousel.map((item, index) => {
         const {
@@ -37,18 +37,18 @@ const Carousel = () => {
         return (
           <SwiperSlide key={index}>
             <div
-              className={`relative p-2 flex flex-row lg:flex-col items-center justify-between w-[92%] md:w-full h-[400px] gap-8 group 
+              className={`relative p-2 lg:pt-4 flex flex-row lg:flex-col items-center justify-between w-[92%] md:w-full xs:max-w-[300px] m-auto h-[400px] lg:h-max gap-8 group 
                 `}
             >
               <div
                 className="absolute top-1/2 right-0 -translate-y-1/2 h-[70%] w-[80%] ml-auto bg-[${bgColor}] rounded-[32px] -z-10 transition-all duration-300 
-                group-hover:h-[90%] group-hover:w-full "
+                group-hover:h-[90%] lg:h-full lg:w-full lg:group-hover:h-full group-hover:w-full"
                 style={{
                   background: bgColor,
                 }}
               />
               <div
-                className={`h-[90%] w-[340px] m-auto aspect-7/8 rounded-[32px] 
+                className={`h-[90%] w-[340px] lg:h-[300px] xs:w-full m-auto aspect-7/8 lg:aspect-auto rounded-[32px] 
                 -rotate-[5deg] group-hover:rotate-0 transition-all duration-300`}
                 style={{
                   backgroundImage: `url(${image})`,
@@ -87,8 +87,8 @@ const Carousel = () => {
                   <p className="font-semibold text-[1rem]">Read Mode</p>
                 </Link>
                 <div
-                  className="hidden mt-4 transition-all duration-300 group-hover:px-4 group-hover:py-2 group-hover:flex flex-row items-center
-                 text-[#3B72FF] border-[2px] border-[#3B72FF] rounded-md w-max cursor-pointer"
+                  className="opacity-0 scale-50 mt-4 transition-all duration-300 px-4 py-2 flex flex-row items-center
+                 text-[#3B72FF] border-[2px] border-[#3B72FF] rounded-md w-max cursor-pointer lg:group-hover:opacity-100 lg:group-hover:scale-100"
                 >
                   <FaRegHeart className="mr-2 !font-bold" />
                   Add to Wishlist

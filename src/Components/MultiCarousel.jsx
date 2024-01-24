@@ -34,9 +34,9 @@ const MultiCarousel = () => {
             <SwiperSlide
               datatype={`slide${index}`}
               key={index}
-              className="relative startCarouselSlideMulti h-full !w-[250px] group"
+              className="relative startCarouselSlideMulti h-full !w-[250px] xs:!w-full group xs:pl-[65px]"
             >
-              <div className="absolute top-[15%] left-0 w-max z-10">
+              <div className="absolute top-[15%] left-0 xs:left-[30px] w-max z-10">
                 <p
                   className="w-max font-Jua font-outline-4 font-bold text-highlight translate-x-0 text-[8rem] 
                   group-hover:scale-0 group-hover:opacity-0 group-hover:translate-x-[50px] transition-all duration-500"
@@ -45,7 +45,7 @@ const MultiCarousel = () => {
                 </p>
               </div>
               <div
-                className="relative w-[190px] h-full p-4 translate-x-[30px] -z-[50px] transition-all duration-500
+                className="relative w-[190px] h-full p-4 translate-x-[30px] lg:translate-x-0 -z-[50px] transition-all duration-500
                   group-hover:translate-x-0 group-hover:z-10
                   flex flex-col items-center justify-center
                   "

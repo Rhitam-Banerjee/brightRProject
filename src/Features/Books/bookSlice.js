@@ -13,7 +13,7 @@ import {
 } from "../../assets";
 
 const initialState = {
-  seriesSelected: "Habits",
+  seriesSelected: "Peppa Pig",
   topTen: [
     {
       title: "There's Coriander in my Sugar Pot!",

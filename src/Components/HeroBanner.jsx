@@ -12,12 +12,12 @@ const HeroBanner = () => {
         <span className="absolute top-[50px] lg:top-0 left-0 pl-2 font-semibold text-[1.2rem]">
           Browse by Age group
         </span>
-        <div className="lg:mt-[30px] lg:w-full lg:max-w-3xl lg:m-auto flex flex-row lg:grid lg:grid-cols-3 lg:place-items-center items-end justify-between text-[0.8rem]">
-          <img src={childArr[0]} alt="zero-one" className="xs:w-[90px]" />
+        <div className="lg:mt-[80px] lg:w-full lg:max-w-3xl lg:m-auto flex flex-row lg:grid lg:grid-cols-3 lg:place-items-center items-end justify-between text-[0.8rem]">
+          <img src={childArr[0]} alt="zero-one" className="xs:w-[90px] " />
           <div className="flex flex-row items-start justify-between -translate-y-[60px] lg:translate-y-0 w-full max-w-[150px] xs:scale-75">
             <Link
               to={"/brightRProject/browseLibrary"}
-              className="px-4 py-2 xs:px-2 xs:py-1 bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
+              className="px-4 py-2 xs:px-3 xs:py-[6px] bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
               onClick={() => {
                 dispatch(setAge(ageArr[0]));
                 dispatch(setActive("Browse Library"));
@@ -30,7 +30,7 @@ const HeroBanner = () => {
             </Link>
             <Link
               to={"/brightRProject/browseLibrary"}
-              className="px-4 py-2 xs:px-2 xs:py-1 bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
+              className="px-4 py-2 xs:px-3 xs:py-[6px] bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
               onClick={() => {
                 dispatch(setAge(ageArr[1]));
                 dispatch(setActive("Browse Library"));
@@ -42,14 +42,22 @@ const HeroBanner = () => {
               <p>years</p>
             </Link>
           </div>
-          <img src={childArr[1]} alt="zero-one" className="xs:w-[90px]" />
+          <img
+            src={childArr[1]}
+            alt="zero-one"
+            className="xs:w-[90px] lg:translate-y-[70px]"
+          />
           {isMobile && (
-            <img src={childArr[2]} alt="zero-one" className="xs:w-[90px]" />
+            <img
+              src={childArr[2]}
+              alt="zero-one"
+              className="xs:w-[90px] lg:translate-y-[100px]"
+            />
           )}
           <div className="flex flex-row items-start justify-between -translate-y-[60px] lg:translate-y-0 w-full max-w-[150px] xs:scale-75">
             <Link
               to={"/brightRProject/browseLibrary"}
-              className="px-4 py-2 xs:px-2 xs:py-1 bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
+              className="px-4 py-2 xs:px-3 xs:py-[6px] bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
               onClick={() => {
                 dispatch(setAge(ageArr[2]));
                 dispatch(setActive("Browse Library"));
@@ -62,7 +70,7 @@ const HeroBanner = () => {
             </Link>
             <Link
               to={"/brightRProject/browseLibrary"}
-              className="px-4 py-2 xs:px-2 xs:py-1 bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
+              className="px-4 py-2 xs:px-3 xs:py-[6px] bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
               onClick={() => {
                 dispatch(setAge(ageArr[3]));
                 dispatch(setActive("Browse Library"));
@@ -75,14 +83,12 @@ const HeroBanner = () => {
             </Link>
           </div>
           {!isMobile && <img src={childArr[2]} alt="zero-one" />}
-          {isMobile && (
-            <img src={childArr[3]} alt="zero-one" className="xs:w-[90px]" />
-          )}
           {isMobile && <div></div>}
-          <div className="flex flex-row items-start justify-between -translate-y-[60px] lg:translate-y-0 w-full max-w-[150px] xs:scale-75">
+          {isMobile && <div></div>}
+          <div className="flex flex-row items-center justify-between -translate-y-[60px] lg:translate-y-0 w-full max-w-[150px] xs:scale-75">
             <Link
               to={"/brightRProject/browseLibrary"}
-              className="px-4 py-2 xs:px-2 xs:py-1 bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
+              className="px-4 py-2 xs:px-3 xs:py-[6px] bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
               onClick={() => {
                 dispatch(setAge(ageArr[4]));
                 dispatch(setActive("Browse Library"));
@@ -95,7 +101,7 @@ const HeroBanner = () => {
             </Link>
             <Link
               to={"/brightRProject/browseLibrary"}
-              className="px-4 py-2 xs:px-2 xs:py-1 bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
+              className="px-4 py-2 xs:px-3 xs:py-[6px] bg-white rounded-md text-[0.8rem] md:text-[0.6rem] flex flex-col justify-center items-center w-max cursor-pointer"
               onClick={() => {
                 dispatch(setAge(ageArr[5]));
                 dispatch(setActive("Browse Library"));
@@ -107,8 +113,7 @@ const HeroBanner = () => {
               <p>years</p>
             </Link>
           </div>
-          {isMobile && <div></div>}
-          {!isMobile && <img src={childArr[3]} alt="zero-one" className="" />}
+          <img src={childArr[3]} alt="zero-one" className="" />
         </div>
       </div>
     </section>
