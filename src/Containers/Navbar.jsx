@@ -187,7 +187,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <PiHamburgerDuotone className="hidden custom:block" />
+        <PiHamburgerDuotone className="hidden custom:block lg:scale-150" />
       </div>
     </section>
   );

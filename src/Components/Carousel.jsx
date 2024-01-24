@@ -37,7 +37,7 @@ const Carousel = () => {
         return (
           <SwiperSlide key={index}>
             <div
-              className={`relative p-2 lg:pt-4 flex flex-row lg:flex-col items-center justify-between w-[92%] md:w-full xs:max-w-[300px] m-auto h-[400px] lg:h-max gap-8 group 
+              className={`relative p-2 lg:pt-4 flex flex-row lg:flex-col items-center justify-end w-[92%] md:w-full xs:max-w-[300px] m-auto h-[400px] lg:h-[700px] gap-8 group 
                 `}
             >
               <div
