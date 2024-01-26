@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setActive } from "../Features/User/userSlice";
 import { setAge } from "../Features/Age/ageSlice";
 const BrowserLibraryHero = () => {
-  const { age } = useSelector((store) => store.age);
-  const { ageArr } = useSelector((store) => store.user);
+  const { age, maxAge } = useSelector((store) => store.age);
   const dispatch = useDispatch();
   return (
     <section className="mt-[100px] max-w-7xl m-auto">
@@ -23,19 +22,19 @@ const BrowserLibraryHero = () => {
           </span>
         </div>
       </div>
-      <div className="my-8 xs:grid xs:grid-cols-3 xs:place-items-center xs:gap-6 flex flex-row w-full max-w-[520px] mr-auto justify-between items-center">
-        {ageArr.map((range, index) => {
+      <div className="my-8 px-4 gap-3 xs:grid xs:grid-cols-3 flex flex-wrap flex-row w-full mr-auto justify-start items-center">
+        {[...Array(maxAge)].map((range, index) => {
           return (
             <div
               key={index}
-              className={`p-4 xs:w-max border-[1px] border-gray-200 rounded-xl ${
-                age === range ? "bg-blueLightColor text-highlight" : ""
+              className={`py-4 px-2 w-[80px] text-center border-[1px] border-gray-200 rounded-xl ${
+                age === index ? "bg-blueLightColor text-highlight" : ""
               } cursor-pointer`}
               onClick={() => {
-                dispatch(setAge(range));
+                dispatch(setAge(index));
               }}
             >
-              {range}
+              {index} - {index + 1}
             </div>
           );
         })}

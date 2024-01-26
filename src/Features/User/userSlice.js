@@ -150,7 +150,6 @@ const initialState = {
       bgColor: "#E9FDF7",
     },
   ],
-  ageArr: ["0-1", "1-3", "3-6", "6-9", "9-12", "12+"],
   childArr: [zeroChild, threeChil, nineChil, twelChil],
   isLoggedin: false,
   delivery: new Date().toISOString(true).split("T")[0],

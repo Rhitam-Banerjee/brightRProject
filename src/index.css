@@ -151,6 +151,57 @@ abbr {
 .swiper-button-prev:hover {
   box-shadow: 0 5px 10px #00000060;
 }
+.gridHeroBanner {
+  display: grid;
+  grid-template-areas: "childAgeZeroFour ageZeroFour childAgeFourEight ageFourEight childAgeEightTwelve ageEightTwelve childAgeGrown";
+}
+.childAgeZeroFour {
+  grid-area: childAgeZeroFour;
+}
+.ageZeroFour {
+  grid-area: ageZeroFour;
+}
+.childAgeFourEight {
+  grid-area: childAgeFourEight;
+}
+.ageFourEight {
+  grid-area: ageFourEight;
+}
+.childAgeEightTwelve {
+  grid-area: childAgeEightTwelve;
+}
+.ageEightTwelve {
+  grid-area: ageEightTwelve;
+}
+.childAgeGrown {
+  grid-area: childAgeGrown;
+}
+.bannerAgeRange {
+  transform: translateY(-50px);
+}
+.bannerAgeRange > a {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+@media only screen and (max-width: 870px) {
+  .gridHeroBanner {
+    grid-template-areas:
+      "childAgeZeroFour ageZeroFour childAgeFourEight"
+      "childAgeEightTwelve ageFourEight ."
+      ". ageEightTwelve childAgeGrown";
+  }
+  .childAgeFourEight,
+  .childAgeEightTwelve {
+    transform: translateY(100px);
+  }
+  .bannerAgeRange {
+    transform: translateY(0px);
+  }
+}
+
 @media only screen and (max-width: 640px) {
   .swiper-slide {
     width: 100%;

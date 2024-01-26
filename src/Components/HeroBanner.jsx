@@ -3,16 +3,85 @@ import { setAge } from "../Features/Age/ageSlice";
 import { setActive } from "../Features/User/userSlice";
 import { Link } from "react-router-dom";
 const HeroBanner = () => {
-  const { isMobile, ageArr, childArr } = useSelector((store) => store.user);
+  const { childArr } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   return (
     <section className="relative min-h-[200px] w-full bg-no-repeat bg-cover bg-center mt-[70px]">
-      <div className="absolute bottom-[25px] lg:bottom-[-20px] left-0 right-0 w-full h-[90%] lg:h-[110%] -z-10 bg-gradient-to-r from-gradientStop1 via-gradientStop2 to-gradientStop3 bg-no-repeat bg-cover bg-center" />
+      <div className="absolute bottom-[25px] left-0 right-0 w-full h-[90%] lg:h-[110%] -z-10 bg-gradient-to-r from-gradientStop1 via-gradientStop2 to-gradientStop3 bg-no-repeat bg-cover bg-center" />
       <div className="relative max-w-7xl m-auto h-full w-full flex flex-col">
         <span className="absolute top-[50px] lg:top-0 left-0 pl-2 font-semibold text-[1.2rem]">
           Browse by Age group
         </span>
-        <div className="lg:mt-[80px] lg:w-full lg:max-w-3xl lg:m-auto flex flex-row lg:grid lg:grid-cols-3 lg:place-items-center items-end justify-between text-[0.8rem]">
+        <div className="mt-[50px] place-items-end custom:place-items-center gridHeroBanner">
+          <img
+            src={childArr[0]}
+            alt="child infant"
+            className="childAgeZeroFour"
+          />
+          <div className="grid grid-cols-2 gap-2 bannerAgeRange ageZeroFour">
+            {[...Array(4)].map((i, age) => {
+              return (
+                <Link
+                  to={"/brightRProject/browseLibrary"}
+                  key={age}
+                  className="p-2 text-[0.8rem] bg-white rounded-md"
+                  onClick={() => {
+                    dispatch(setAge(age));
+                    dispatch(setActive("Browse Library"));
+                  }}
+                >
+                  {age} - {age + 1}
+                </Link>
+              );
+            })}
+          </div>
+          <img
+            src={childArr[1]}
+            alt="child infant"
+            className="childAgeFourEight"
+          />
+          <div className="grid grid-cols-2 gap-2 bannerAgeRange ageFourEight">
+            {[...Array(4)].map((i, age) => {
+              return (
+                <Link
+                  to={"/brightRProject/browseLibrary"}
+                  key={age + 4}
+                  className="p-2 text-[0.8rem] bg-white rounded-md"
+                  onClick={() => {
+                    dispatch(setAge(age + 4));
+                    dispatch(setActive("Browse Library"));
+                  }}
+                >
+                  {age + 4} - {age + 5}
+                </Link>
+              );
+            })}
+          </div>
+          <img
+            src={childArr[2]}
+            alt="child infant"
+            className="childAgeEightTwelve"
+          />
+          <div className="grid grid-cols-2 gap-2 bannerAgeRange ageEightTwelve">
+            {[...Array(4)].map((i, age) => {
+              return (
+                <Link
+                  to={"/brightRProject/browseLibrary"}
+                  key={age + 8}
+                  className="p-2 text-[0.8rem] bg-white rounded-md"
+                  onClick={() => {
+                    dispatch(setAge(age + 8));
+                    dispatch(setActive("Browse Library"));
+                  }}
+                >
+                  {age + 8} - {age + 9}
+                </Link>
+              );
+            })}
+          </div>
+          <img src={childArr[3]} alt="child infant" className="childAgeGrown" />
+        </div>
+        {/* <div className="lg:mt-[80px] lg:w-full lg:max-w-3xl lg:m-auto flex flex-row lg:grid lg:grid-cols-3 lg:place-items-center items-end justify-between text-[0.8rem]">
           <img src={childArr[0]} alt="zero-one" className="xs:w-[90px] " />
           <div className="flex flex-row items-start justify-between -translate-y-[60px] lg:translate-y-0 w-full max-w-[150px] xs:scale-75">
             <Link
@@ -114,7 +183,7 @@ const HeroBanner = () => {
             </Link>
           </div>
           <img src={childArr[3]} alt="zero-one" className="" />
-        </div>
+        </div> */}
       </div>
     </section>
   );

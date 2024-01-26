@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  age: "0-1",
+  age: 0,
+  maxAge: 12,
 };
 const ageSlice = createSlice({
   name: "age",
