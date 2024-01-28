@@ -12,7 +12,6 @@ import "swiper/css/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const BestSellersPopular = () => {
-  const imageUrlRegex = /\.(jpeg|jpg|gif|png)$/i;
   const { age } = useSelector((store) => store.age);
   const [allBooks, setAllBooks] = useState({});
   const getBooks = async () => {
@@ -50,7 +49,7 @@ const BestSellersPopular = () => {
       >
         {Object.keys(allBooks).map((keys, index) => {
           const { name, image, rating, review_count } = allBooks[keys];
-          const isValidImageUrl = imageUrlRegex.test(image);
+          const isValidImageUrl = /\.(jpeg|jpg|gif|png)$/i.test(image);
           if (name !== "" && image?.length > 10 && isValidImageUrl) {
             let newName = name?.split(/:|\?/)[0];
             return (

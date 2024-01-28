@@ -13,7 +13,6 @@ import { setHidePopularBooks } from "../Features/Books/bookSlice";
 const PopularSeriesBooks = () => {
   const { seriesSelected, bookTitle } = useSelector((store) => store.books);
   const booksCount = bookTitle[`${seriesSelected}`].length;
-  const imageUrlRegex = /\.(jpeg|jpg|gif|png)$/i;
   const dispatch = useDispatch();
   return (
     <div className="relative max-w-7xl px-2 w-full m-auto pb-[50px] border-t-[1px] border-white pt-[50px] border-opacity-50 flex flex-col">
@@ -43,19 +42,19 @@ const PopularSeriesBooks = () => {
       >
         {bookTitle[`${seriesSelected}`].map((book, index) => {
           const { name, image, rating, review_count } = book;
-          const isValidImageUrl = imageUrlRegex.test(image);
+          const isValidImageUrl = /\.(jpeg|jpg|gif|png)$/i.test(image);
           if (name !== "" && image?.length > 10 && isValidImageUrl) {
             let newName = name?.split(/:|\?/)[0];
             return (
               <SwiperSlide
                 datatype={`slide${index}`}
                 key={index}
-                className="relative startCarouselSlideMulti h-full !w-[200px] group !bg-transparent"
+                className="relative startCarouselSlideMulti h-auto !w-[200px] group !bg-transparent"
               >
                 <div
                   className="relative w-[190px] h-full p-4 -z-[50px] transition-all duration-300
                   group-hover:z-10
-                  flex flex-col items-center justify-center
+                  flex flex-col items-center justify-between
                   "
                 >
                   <div
@@ -63,14 +62,18 @@ const PopularSeriesBooks = () => {
                   w-[50%] h-[50%] bg-[#13345F] rounded-[32px] opacity-0 transition-all duration-300
                   group-hover:opacity-100 group-hover:h-[100%] group-hover:w-[200px] -z-10"
                   />
-                  <div
-                    className="h-[190px] w-[170px] bg-cover bg-top bg-no-repeat rounded-[32px] mb-4"
-                    style={{
-                      backgroundImage: `url(${image})`,
-                    }}
-                  ></div>
-                  <div className="mt-8 text-left font-semibold text-[1rem] w-full flex flex-col justify-end h-[100px] text-white">
-                    <h2 className="mb-3">{newName}</h2>
+                  <div>
+                    <div
+                      className="h-[190px] w-[170px] bg-cover bg-top bg-no-repeat rounded-[32px] mb-4"
+                      style={{
+                        backgroundImage: `url(${image})`,
+                      }}
+                    ></div>
+                    <h2 className="mt-4 text-left font-semibold text-[1rem] text-white">
+                      {newName}
+                    </h2>
+                  </div>
+                  <div className="mt-8 text-left font-semibold text-[1rem] w-full flex flex-col justify-end text-white">
                     <div className="flex flex-row items-center justify-between text-[0.8rem] w-full">
                       <Link
                         to={"https://www.amazon.in/"}

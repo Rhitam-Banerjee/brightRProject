@@ -54,10 +54,8 @@ const TopBooks = () => {
         {topTen.map((book, index) => {
           const { name, image, rating, review_count } = book;
           const newName = name.split(":")[0];
-          const imageExtension = "jpg";
-          const includesExtension = image.includes(imageExtension);
-          const newImage = !includesExtension ? image + ".jpg" : image;
-          if (name !== "" && image.length > 10) {
+          const isValidImageUrl = /\.(jpeg|jpg|gif|png)$/i.test(image);
+          if (name !== "" && image.length > 10 && isValidImageUrl) {
             return (
               <SwiperSlide
                 datatype={`slide${index}`}
@@ -86,7 +84,7 @@ const TopBooks = () => {
                   <div
                     className="h-[190px] w-[170px] bg-cover bg-top bg-no-repeat rounded-[32px] mb-4"
                     style={{
-                      backgroundImage: `url(${newImage})`,
+                      backgroundImage: `url(${image})`,
                     }}
                   ></div>
                   <div className="flex-1 mt-2 text-left font-semibold text-[1rem] w-full flex flex-col justify-end">

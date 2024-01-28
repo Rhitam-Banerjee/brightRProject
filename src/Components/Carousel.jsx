@@ -45,12 +45,15 @@ const Carousel = () => {
     >
       {topBooks.map((book, index) => {
         const { name, image, rating, review_count, description } = book;
+        const isValidImageUrl = /\.(jpeg|jpg|gif|png)$/i.test(image);
         const newName = name.split(":")[0];
-        if (name !== "" && description && image.length > 10) {
+        if (
+          name !== "" &&
+          description &&
+          image.length > 10 &&
+          isValidImageUrl
+        ) {
           const newDescription = description.substring(0, 100) + "...";
-          const imageExtension = "jpg";
-          const includesExtension = image.includes(imageExtension);
-          const newImage = !includesExtension ? image + ".jpg" : image;
           return (
             <SwiperSlide key={index}>
               <div
@@ -70,7 +73,7 @@ const Carousel = () => {
                   style={{
                     background:
                       "linear-gradient(rgba(255,255,255,1),rgba(0,0,0,1))",
-                    backgroundImage: `url(${newImage})`,
+                    backgroundImage: `url(${image})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",

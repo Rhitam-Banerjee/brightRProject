@@ -59,39 +59,42 @@ const PopularSeries = () => {
           const { image } =
             bookTitle[`${title}`][bookTitle[`${title}`].length - 1];
           const length = bookTitle[`${title}`].length;
-          return (
-            <SwiperSlide
-              datatype={`slide${index}`}
-              key={index}
-              className="h-[400px] !w-[200px] group !bg-transparent pl-[20px]"
-            >
-              <div
-                className={`relative w-[200px] h-full p-4 -z-[50px] transition-all duration-300
+          const isValidImageUrl = /\.(jpeg|jpg|gif|png)$/i.test(image);
+          if (isValidImageUrl && image.length > 10) {
+            return (
+              <SwiperSlide
+                datatype={`slide${index}`}
+                key={index}
+                className="h-[400px] !w-[200px] group !bg-transparent pl-[20px]"
+              >
+                <div
+                  className={`relative w-[200px] h-full p-4 -z-[50px] transition-all duration-300
                 flex flex-col justify-start items-start bg-transparent
                  ${
                    seriesSelected === title && showPopularBooks
                      ? "scale-[1.2] !translate-y-[40px] opacity-100"
                      : "opacity-50 group-hover:scale-[1.2] group-hover:translate-y-[40px] group-hover:opacity-100"
                  }`}
-                onClick={() => {
-                  console.log(title);
-                  dispatch(changeSeries(title));
-                  dispatch(setShowPopularBooks());
-                }}
-              >
-                <div
-                  className="h-[190px] w-[170px] bg-cover bg-top bg-no-repeat rounded-[32px] mb-4"
-                  style={{
-                    backgroundImage: `url(${image})`,
+                  onClick={() => {
+                    console.log(title);
+                    dispatch(changeSeries(title));
+                    dispatch(setShowPopularBooks());
                   }}
-                ></div>
-                <div className="flex flex-col justify-start items-start text-[0.8rem] font-semibold text-white">
-                  <span className="my-2 text-left">{title}</span>
-                  <span>{length} Books</span>
+                >
+                  <div
+                    className="h-[190px] w-[170px] bg-cover bg-top bg-no-repeat rounded-[32px] mb-4"
+                    style={{
+                      backgroundImage: `url(${image})`,
+                    }}
+                  ></div>
+                  <div className="flex flex-col justify-start items-start text-[0.8rem] font-semibold text-white">
+                    <span className="my-2 text-left">{title}</span>
+                    <span>{length} Books</span>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          );
+              </SwiperSlide>
+            );
+          }
         })}
       </Swiper>
     </div>
