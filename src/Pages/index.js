@@ -1,5 +1,7 @@
 import Home from "./Home";
 import BrowseLibrary from "./BrowseLibrary";
-import Blogs from "./Blogs";
+import Genre from "./Genre";
 import MyBooks from "./MyBooks";
-export { Home, BrowseLibrary, Blogs, MyBooks };
+import Series from "./Series";
+import MustRead from "./MustRead";
+export { Home, BrowseLibrary, Genre, MyBooks, Series, MustRead };

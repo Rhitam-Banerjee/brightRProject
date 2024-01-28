@@ -1,16 +1,13 @@
-import { BestSellersPopular } from "../Components";
 import { Navbar, Footer, BrowserLibraryHero, BrowseBooks } from "../Containers";
-
-const BrowseLibrary = () => {
+const Series = () => {
   return (
     <main className="relative">
       <Navbar />
-      <BrowserLibraryHero text={"Age Group"} />
-      <BestSellersPopular />
+      <BrowserLibraryHero text={"Series"} />
       <BrowseBooks />
       <Footer />
     </main>
   );
 };
 
-export default BrowseLibrary;
+export default Series;

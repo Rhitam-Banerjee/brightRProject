@@ -1,32 +1,41 @@
-/* eslint-disable react/prop-types */
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, HashNavigation } from "swiper/modules";
 import { amazon, people, stars } from "../assets";
 import { FaRegHeart } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { setHidePopularBooks } from "../Features/Books/bookSlice";
-const PopularSeriesBooks = () => {
-  const { seriesSelected, bookTitle } = useSelector((store) => store.books);
-  const booksCount = bookTitle[`${seriesSelected}`].length;
-  const imageUrlRegex = /\.(jpeg|jpg|gif|png)$/i;
-  const dispatch = useDispatch();
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import axios from "axios";
+const TopBooks = () => {
+  // const { topTen } = useSelector((store) => store.books);
+  const { age } = useSelector((store) => store.age);
+  const [topTen, setTopTen] = useState([]);
+  let countSlide = 1;
+  const getBooks = async () => {
+    const response = await axios
+      .get(`http://localhost:5000/getTopBooksByReviewCount?age=${age}`)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    if (response.success) {
+      setTopTen(response.book_set[0].books);
+    }
+  };
+  // const handleSlideChange = () => {};
+  useEffect(() => {
+    getBooks();
+  }, [age]);
   return (
-    <div className="relative max-w-7xl px-2 w-full m-auto pb-[50px] border-t-[1px] border-white pt-[50px] border-opacity-50 flex flex-col">
-      <p className="text-white font-semibold text-[1.2rem]">
-        {seriesSelected}
-        <small className="ml-2 opacity-50"> {booksCount} books</small>
-      </p>
-      <IoClose
-        className="absolute top-[50px] right-2 text-white text-[2rem] cursor-pointer"
-        onClick={() => {
-          dispatch(setHidePopularBooks());
-        }}
-      />
+    <section className="relative mt-[100px]">
+      <span className="absolute top-0 left-1/2 -translate-x-1/2 pl-2 w-full max-w-7xl m-auto font-semibold text-[1.2rem]">
+        Top Books
+      </span>
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={30}
@@ -41,36 +50,46 @@ const PopularSeriesBooks = () => {
         modules={[Navigation, HashNavigation]}
         className="mySwiper pt-[50px] flex justify-between"
       >
-        {bookTitle[`${seriesSelected}`].map((book, index) => {
+        {topTen.map((book, index) => {
           const { name, image, rating, review_count } = book;
-          const isValidImageUrl = imageUrlRegex.test(image);
-          if (name !== "" && image?.length > 10 && isValidImageUrl) {
-            let newName = name?.split(/:|\?/)[0];
+          const newName = name.split(":")[0];
+          const imageExtension = "jpg";
+          const includesExtension = image.includes(imageExtension);
+          const newImage = !includesExtension ? image + ".jpg" : image;
+          if (name !== "" && image.length > 10) {
             return (
               <SwiperSlide
                 datatype={`slide${index}`}
                 key={index}
-                className="relative startCarouselSlideMulti h-full !w-[200px] group !bg-transparent"
+                className="startCarouselSlideMulti h-auto !w-[200px] xs:!w-full group xs:pl-[65px] !duration-500"
               >
+                <div className="absolute top-[15%] left-0 xs:left-[30px] w-max z-10">
+                  <p
+                    className="w-max font-Jua font-outline-4 font-bold text-highlight translate-x-0 text-[8rem] 
+                  group-hover:scale-0 group-hover:opacity-0 group-hover:translate-x-[50px] transition-all duration-500"
+                  >
+                    {countSlide++}
+                  </p>
+                </div>
                 <div
-                  className="relative w-[190px] h-full p-4 -z-[50px] transition-all duration-300
-                  group-hover:z-10
-                  flex flex-col items-center justify-center
+                  className="relative w-[190px] h-full p-4 translate-x-[30px] lg:translate-x-0 -z-[50px] transition-all duration-500
+                  group-hover:translate-x-0 group-hover:z-10
+                  flex flex-col items-center justify-start
                   "
                 >
                   <div
                     className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 m-auto
-                  w-[50%] h-[50%] bg-[#13345F] rounded-[32px] opacity-0 transition-all duration-300
+                  w-[50%] h-[50%] bg-blueLightColor rounded-[32px] opacity-0 transition-all duration-500
                   group-hover:opacity-100 group-hover:h-[100%] group-hover:w-[200px] -z-10"
                   />
                   <div
                     className="h-[190px] w-[170px] bg-cover bg-top bg-no-repeat rounded-[32px] mb-4"
                     style={{
-                      backgroundImage: `url(${image})`,
+                      backgroundImage: `url(${newImage})`,
                     }}
                   ></div>
-                  <div className="mt-8 text-left font-semibold text-[1rem] w-full flex flex-col justify-end h-[100px] text-white">
-                    <h2 className="mb-3">{newName}</h2>
+                  <div className="flex-1 mt-2 text-left font-semibold text-[1rem] w-full flex flex-col justify-end">
+                    <h2 className="mb-auto">{newName}</h2>
                     <div className="flex flex-row items-center justify-between text-[0.8rem] w-full">
                       <Link
                         to={"https://www.amazon.in/"}
@@ -87,7 +106,7 @@ const PopularSeriesBooks = () => {
                         <img
                           src={people}
                           alt="Read By"
-                          className="border-l-[1px] border-white pl-4"
+                          className="border-l-[1px] border-black pl-4"
                         />
                         <p>{review_count}</p>
                       </div>
@@ -106,8 +125,8 @@ const PopularSeriesBooks = () => {
           }
         })}
       </Swiper>
-    </div>
+    </section>
   );
 };
 
-export default PopularSeriesBooks;
+export default TopBooks;

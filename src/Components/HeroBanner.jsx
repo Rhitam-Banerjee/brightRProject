@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setAge } from "../Features/Age/ageSlice";
-import { setActive } from "../Features/User/userSlice";
-import { Link } from "react-router-dom";
 const HeroBanner = () => {
   const { childArr } = useSelector((store) => store.user);
+  const { age } = useSelector((store) => store.age);
   const dispatch = useDispatch();
   return (
     <section className="relative min-h-[200px] w-full bg-no-repeat bg-cover bg-center mt-[70px]">
@@ -19,19 +18,22 @@ const HeroBanner = () => {
             className="childAgeZeroFour"
           />
           <div className="grid grid-cols-2 gap-2 bannerAgeRange ageZeroFour">
-            {[...Array(4)].map((i, age) => {
+            {[...Array(4)].map((i, index) => {
               return (
-                <Link
-                  to={"/brightRProject/browseLibrary"}
-                  key={age}
-                  className="p-2 text-[0.8rem] bg-white rounded-md"
+                <div
+                  key={index}
+                  className={`p-2 text-[0.8rem] bg-white rounded-md cursor-pointer text-center ${
+                    age === index ? "bg-purpleLightColor text-highlight" : ""
+                  }`}
                   onClick={() => {
-                    dispatch(setAge(age));
-                    dispatch(setActive("Browse Library"));
+                    dispatch(setAge(index));
                   }}
                 >
-                  {age} - {age + 1}
-                </Link>
+                  <span className="text-base">
+                    {index} - {index + 1}
+                  </span>
+                  <p className="text-[0.6rem]">years</p>
+                </div>
               );
             })}
           </div>
@@ -41,19 +43,24 @@ const HeroBanner = () => {
             className="childAgeFourEight"
           />
           <div className="grid grid-cols-2 gap-2 bannerAgeRange ageFourEight">
-            {[...Array(4)].map((i, age) => {
+            {[...Array(4)].map((i, index) => {
               return (
-                <Link
-                  to={"/brightRProject/browseLibrary"}
-                  key={age + 4}
-                  className="p-2 text-[0.8rem] bg-white rounded-md"
+                <div
+                  key={index}
+                  className={`p-2 text-[0.8rem] bg-white rounded-md cursor-pointer text-center ${
+                    age === index + 4
+                      ? "bg-purpleLightColor text-highlight"
+                      : ""
+                  }`}
                   onClick={() => {
-                    dispatch(setAge(age + 4));
-                    dispatch(setActive("Browse Library"));
+                    dispatch(setAge(index + 4));
                   }}
                 >
-                  {age + 4} - {age + 5}
-                </Link>
+                  <span className="text-base">
+                    {index + 4} - {index + 5}
+                  </span>
+                  <p className="text-[0.6rem]">years</p>
+                </div>
               );
             })}
           </div>
@@ -63,19 +70,24 @@ const HeroBanner = () => {
             className="childAgeEightTwelve"
           />
           <div className="grid grid-cols-2 gap-2 bannerAgeRange ageEightTwelve">
-            {[...Array(4)].map((i, age) => {
+            {[...Array(4)].map((i, index) => {
               return (
-                <Link
-                  to={"/brightRProject/browseLibrary"}
-                  key={age + 8}
-                  className="p-2 text-[0.8rem] bg-white rounded-md"
+                <div
+                  key={index}
+                  className={`p-2 text-[0.8rem] bg-white rounded-md cursor-pointer text-center ${
+                    age === index + 8
+                      ? "bg-purpleLightColor text-highlight"
+                      : ""
+                  }`}
                   onClick={() => {
-                    dispatch(setAge(age + 8));
-                    dispatch(setActive("Browse Library"));
+                    dispatch(setAge(index + 8));
                   }}
                 >
-                  {age + 8} - {age + 9}
-                </Link>
+                  <span className="text-base">
+                    {index + 8} - {index + 9}
+                  </span>
+                  <p className="text-[0.6rem]">years</p>
+                </div>
               );
             })}
           </div>

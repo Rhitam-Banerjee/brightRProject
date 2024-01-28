@@ -1,14 +1,20 @@
 import Carousel from "./Carousel";
 import HeroBanner from "./HeroBanner";
-import MultiCarousel from "./MultiCarousel";
-import SimpleCarousel from "./SimpleCarousel";
-import PopularSeries from "./PopularSeries";
+import TopBooks from "./TopBooks";
+import PopularSeriesTitle from "./PopularSeriesTitle";
 import PopularSeriesBooks from "./PopularSeriesBooks";
+import BestSellersPopular from "./BestSellersPopular";
+import GlobalBestSeller from "./GlobalBestSeller";
+import TeachersPick from "./TeachersPick";
+import MustReadBooks from "./MustReadBooks";
 export {
   Carousel,
   HeroBanner,
-  MultiCarousel,
-  SimpleCarousel,
-  PopularSeries,
+  TopBooks,
+  PopularSeriesTitle,
   PopularSeriesBooks,
+  BestSellersPopular,
+  GlobalBestSeller,
+  TeachersPick,
+  MustReadBooks,
 };

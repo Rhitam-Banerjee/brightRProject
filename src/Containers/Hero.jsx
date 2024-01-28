@@ -1,11 +1,11 @@
-import { Carousel, HeroBanner, MultiCarousel } from "../Components";
+import { Carousel, HeroBanner, TopBooks } from "../Components";
 
 const Hero = () => {
   return (
     <section className="mt-[100px]">
       <Carousel />
       <HeroBanner />
-      <MultiCarousel />
+      <TopBooks />
     </section>
   );
 };

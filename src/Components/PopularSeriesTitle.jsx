@@ -1,15 +1,43 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, HashNavigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSeries } from "../Features/Books/bookSlice";
+import {
+  changeSeries,
+  setShowPopularBooks,
+  setTitles,
+} from "../Features/Books/bookSlice";
+import { useEffect, useState } from "react";
+import axios from "axios";
 const PopularSeries = () => {
-  const { bookTitle, allBooks, seriesSelected } = useSelector(
+  const { showPopularBooks, bookTitle, seriesSelected } = useSelector(
     (store) => store.books
   );
+  const { age } = useSelector((store) => store.age);
+  const [objKeys, setObjKeys] = useState([]);
   const dispatch = useDispatch();
+  const getBooks = async () => {
+    const responses = await axios
+      .get(`http://localhost:5000/popularBooks?age=${age}`)
+      .then((res) => {
+        return res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    delete responses["Best Seller - Most Popular"];
+    delete responses["Most Popular Series"];
+    delete responses["New York Times Bestseller"];
+    delete responses["Global Bestseller"];
+    delete responses["Teacher Pick"];
+    setObjKeys(Object.keys(responses));
+    dispatch(setTitles(responses));
+  };
+  useEffect(() => {
+    getBooks();
+  }, [age]);
   return (
     <div className="max-w-7xl w-full px-2 m-auto">
       <h1 className="text-white font-semibold text-[1.2rem] pt-[75px]">
@@ -18,24 +46,18 @@ const PopularSeries = () => {
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={30}
-        hashNavigation={{
-          watchState: true,
-        }}
         pagination={{
           clickable: true,
         }}
         grabCursor={true}
         navigation={true}
-        modules={[Navigation, HashNavigation]}
+        modules={[Navigation]}
         className="mySwiper pt-[50px] flex justify-between "
       >
-        {bookTitle.map((book, index) => {
-          const { title, image } = book;
-          const bookIndexCount = [
-            ...allBooks.filter((abook) => {
-              return abook.series === title;
-            }),
-          ];
+        {objKeys.map((title, index) => {
+          const { image } =
+            bookTitle[`${title}`][bookTitle[`${title}`].length - 1];
+          const length = bookTitle[`${title}`].length;
           return (
             <SwiperSlide
               datatype={`slide${index}`}
@@ -44,13 +66,17 @@ const PopularSeries = () => {
             >
               <div
                 className={`relative w-[200px] h-full p-4 -z-[50px] transition-all duration-300
-                flex flex-col justify-start items-start bg-transparent 
+                flex flex-col justify-start items-start bg-transparent
                  ${
-                   seriesSelected === title
+                   seriesSelected === title && showPopularBooks
                      ? "scale-[1.2] !translate-y-[40px] opacity-100"
                      : "opacity-50 group-hover:scale-[1.2] group-hover:translate-y-[40px] group-hover:opacity-100"
                  }`}
-                onClick={() => dispatch(changeSeries(title))}
+                onClick={() => {
+                  console.log(title);
+                  dispatch(changeSeries(title));
+                  dispatch(setShowPopularBooks());
+                }}
               >
                 <div
                   className="h-[190px] w-[170px] bg-cover bg-top bg-no-repeat rounded-[32px] mb-4"
@@ -59,8 +85,8 @@ const PopularSeries = () => {
                   }}
                 ></div>
                 <div className="flex flex-col justify-start items-start text-[0.8rem] font-semibold text-white">
-                  <span className="my-2">{title}</span>
-                  <span>{bookIndexCount.length} Books</span>
+                  <span className="my-2 text-left">{title}</span>
+                  <span>{length} Books</span>
                 </div>
               </div>
             </SwiperSlide>

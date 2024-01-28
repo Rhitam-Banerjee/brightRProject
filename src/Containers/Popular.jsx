@@ -1,13 +1,15 @@
-import { PopularSeries, PopularSeriesBooks } from "../Components";
+import { useSelector } from "react-redux";
+import { PopularSeriesTitle, PopularSeriesBooks } from "../Components";
 import { bg } from "../assets";
 const Popular = () => {
+  const { showPopularBooks } = useSelector((store) => store.books);
   return (
     <section
-      className="my-[50px] h-max min-h-[830px] w-full bg-[#172957] bg-center bg-no-repeat bg-cover"
+      className="my-[50px] h-max w-full bg-[#172957] bg-center bg-no-repeat bg-cover"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      <PopularSeries />
-      <PopularSeriesBooks />
+      <PopularSeriesTitle />
+      {showPopularBooks && <PopularSeriesBooks />}
     </section>
   );
 };

@@ -10,20 +10,19 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
-const BrowseBooks = () => {
+const MustReadBooks = () => {
   const imageUrlRegex = /\.(jpeg|jpg|gif|png)$/i;
   const { age } = useSelector((store) => store.age);
   const [allBooks, setAllBooks] = useState([]);
   const getBooks = async () => {
     const responses = await axios
-      .get(`http://localhost:5000/browseLibrary?age=${age}`)
+      .get(`http://localhost:5000/mustRead?age=${age}`)
       .then((res) => {
         return res.data;
       })
       .catch((err) => {
         console.log(err);
       });
-    responses.splice(-1);
     setAllBooks(responses);
   };
   useEffect(() => {
@@ -31,12 +30,12 @@ const BrowseBooks = () => {
   }, [age]);
   return (
     <section className="mt-[100px]">
-      {[...allBooks].reverse().map((bookDetails, index) => {
-        const { catagory } = bookDetails;
+      {allBooks.map((bookDetails, index) => {
+        const { category } = bookDetails;
         return (
           <div key={index} className="mt-[50px]">
             <h1 className="mt-[-40px] pl-2 w-full max-w-7xl m-auto font-bold text-[2rem] xs:text-[1.2rem]">
-              {catagory}
+              {category}
             </h1>
             <Swiper
               slidesPerView={"auto"}
@@ -49,8 +48,8 @@ const BrowseBooks = () => {
               modules={[Navigation]}
               className="mySwiper pt-[50px] flex justify-between"
             >
-              {Object.keys(bookDetails).map((keys, index) => {
-                const { name, image, rating, review_count } = bookDetails[keys];
+              {bookDetails.books.map((book, index) => {
+                const { name, image, rating, review_count } = book;
                 const isValidImageUrl = imageUrlRegex.test(image);
                 if (name !== "" && image?.length > 10 && isValidImageUrl) {
                   let newName = name?.split(/:|\?/)[0];
@@ -126,4 +125,4 @@ const BrowseBooks = () => {
   );
 };
 
-export default BrowseBooks;
+export default MustReadBooks;

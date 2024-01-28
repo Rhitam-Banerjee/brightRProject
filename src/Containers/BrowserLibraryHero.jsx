@@ -3,7 +3,7 @@ import { leftArrow } from "../assets";
 import { useDispatch, useSelector } from "react-redux";
 import { setActive } from "../Features/User/userSlice";
 import { setAge } from "../Features/Age/ageSlice";
-const BrowserLibraryHero = () => {
+const BrowserLibraryHero = ({ text }) => {
   const { age, maxAge } = useSelector((store) => store.age);
   const dispatch = useDispatch();
   return (
@@ -17,9 +17,7 @@ const BrowserLibraryHero = () => {
           <img src={leftArrow} alt="Back Arrow" />
         </Link>
         <div>
-          <span className="text-[2rem] xs:text-[1.5rem]">
-            Browse by Age Group
-          </span>
+          <span className="text-[2rem] xs:text-[1.5rem]">Browse by {text}</span>
         </div>
       </div>
       <div className="my-8 px-4 gap-3 xs:grid xs:grid-cols-3 flex flex-wrap flex-row w-full mr-auto justify-start items-center">

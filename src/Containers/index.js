@@ -5,7 +5,7 @@ import CollectionsBook from "./CollectionsBook";
 import Footer from "./Footer";
 import BrowserLibraryHero from "./BrowserLibraryHero";
 import BrowseBooks from "./BrowseBooks";
-import NewArrivalAge from "./NewArrivalAge";
+import BrowseGenre from "./BrowseGenre";
 export {
   Navbar,
   Hero,
@@ -14,5 +14,5 @@ export {
   Footer,
   BrowserLibraryHero,
   BrowseBooks,
-  NewArrivalAge,
+  BrowseGenre,
 };

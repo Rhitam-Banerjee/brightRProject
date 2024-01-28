@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { logo, userImg } from "../assets";
 import { CiSearch } from "react-icons/ci";
 import { IoMdArrowDropdownCircle } from "react-icons/io";
@@ -14,7 +14,9 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 const Navbar = () => {
-  const { delivery, activePage, menuItems, isLoggedin } = useSelector(
+  const location = useLocation();
+  const { pathname } = location;
+  const { delivery, menuItems, isLoggedin } = useSelector(
     (store) => store.user
   );
   const [deliveryDate, setDeliveryDate] = useState(new Date(delivery));
@@ -39,7 +41,7 @@ const Navbar = () => {
   return (
     <section className="fixed top-0 left-1/2 -translate-x-1/2 w-full bg-white z-50">
       <div className="relative max-w-7xl m-auto py-4 px-2 flex flex-row items-center justify-between gap-8 lg:gap-2 xs:gap-0 text-[12px]">
-        <div className="flex-1 flex flex-row items-center justify-start">
+        <div className="flex flex-row items-center justify-start">
           <Link
             to={"/brightRProject"}
             className="mr-4"
@@ -61,16 +63,14 @@ const Navbar = () => {
           </form>
         </div>
         <div className="custom:hidden flex-1 flex flex-row justify-around items-center">
-          <ul className="w-full max-w-[200px] flex flex-row justify-between items-center xs:justify-start xs:gap-4">
+          <ul className="flex-1 w-[80%] flex flex-row justify-around items-center xs:justify-start xs:gap-4">
             {menuItems.map((items, index) => {
               const { title, link } = items;
               return (
                 <li
                   key={index}
                   className={`${
-                    activePage === title
-                      ? "text-blue-400"
-                      : "hover:text-gray-400"
+                    pathname === link ? "text-blue-400" : "hover:text-gray-400"
                   }`}
                   onClick={() => dispatch(setActive(`${title}`))}
                 >
@@ -83,7 +83,7 @@ const Navbar = () => {
             <div className="gap-2 flex-1 flex justify-around items-center">
               <span
                 className={`ml-2 pl-4 border-l-[1px] border-l-gray-400  ${
-                  activePage === "My Books"
+                  pathname === "/brightRProject/myBooks"
                     ? "text-blue-400"
                     : "hover:text-gray-400"
                 } `}
@@ -209,7 +209,7 @@ const Navbar = () => {
                     <li
                       key={index}
                       className={`p-4 ${
-                        activePage === title
+                        pathname === link
                           ? "text-blue-400"
                           : "hover:text-gray-400"
                       }`}
@@ -224,7 +224,7 @@ const Navbar = () => {
                 <div className="w-full gap-2 flex-1 flex flex-col justify-center items-center text-center">
                   <span
                     className={`w-full p-4 ${
-                      activePage === "My Books"
+                      pathname === "/brightRProject/myBooks"
                         ? "text-blue-400"
                         : "hover:text-gray-400"
                     } border-black border-opacity-20 border-b-[1px]`}
