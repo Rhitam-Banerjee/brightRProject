@@ -5,7 +5,7 @@ const MustRead = () => {
   return (
     <main className="relative">
       <Navbar />
-      <BrowserLibraryHero />
+      <BrowserLibraryHero text={"Must Read"} />
       <MustReadBooks />
       <Footer />
     </main>
