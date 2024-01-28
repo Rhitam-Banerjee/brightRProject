@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { host } from "../utils/API_RouteBase";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +17,7 @@ const TeachersPick = () => {
   const [allBooks, setAllBooks] = useState([]);
   const getBooks = async () => {
     const responses = await axios
-      .get(`http://localhost:5000/teachersPick?age=${age}`)
+      .get(`${host}/teachersPick?age=${age}`)
       .then((res) => {
         return res.data;
       })

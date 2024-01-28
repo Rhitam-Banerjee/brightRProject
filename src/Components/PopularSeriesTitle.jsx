@@ -1,3 +1,4 @@
+import { host } from "../utils/API_RouteBase";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -20,7 +21,7 @@ const PopularSeries = () => {
   const dispatch = useDispatch();
   const getBooks = async () => {
     const responses = await axios
-      .get(`http://localhost:5000/popularBooks?age=${age}`)
+      .get(`${host}/popularBooks?age=${age}`)
       .then((res) => {
         return res.data;
       })

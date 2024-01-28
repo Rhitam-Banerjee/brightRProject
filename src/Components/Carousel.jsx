@@ -1,3 +1,4 @@
+import { host } from "../utils/API_RouteBase";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Navigation } from "swiper/modules";
@@ -15,7 +16,7 @@ const Carousel = () => {
   const [topBooks, setTopBooks] = useState([]);
   const getBooks = async () => {
     const response = await axios
-      .get(`http://localhost:5000/getTopBooksByReviewCount?age=${age}`)
+      .get(`${host}/getTopBooksByReviewCount?age=${age}`)
       .then((res) => {
         return res.data;
       })

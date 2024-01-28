@@ -1,3 +1,4 @@
+import { host } from "../utils/API_RouteBase";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, HashNavigation } from "swiper/modules";
@@ -16,7 +17,7 @@ const TopBooks = () => {
   let countSlide = 1;
   const getBooks = async () => {
     const response = await axios
-      .get(`http://localhost:5000/getTopBooksByReviewCount?age=${age}`)
+      .get(`${host}/getTopBooksByReviewCount?age=${age}`)
       .then((res) => {
         return res.data;
       })
